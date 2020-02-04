@@ -29,6 +29,7 @@ filareserva = ()
 semaforo = None
 check = ()
 filechooserbackup = None
+filechooserimport = None
 neobackup = None
 numhabres = None
 reserva = None

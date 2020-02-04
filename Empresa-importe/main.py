@@ -24,6 +24,7 @@ class Empresa:
         variables.venacercade = self.b.get_object('venAcercade')
         variables.panel = self.b.get_object('Panel')
         variables.filechooserbackup = self.b.get_object('fileChooserbackup')
+        variables.filechooserimport = self.b.get_object('fileChooserImport')
         menubar = self.b.get_object('menuBar').get_style_context()
 
         #declaracion de wigdets

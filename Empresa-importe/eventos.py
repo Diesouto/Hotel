@@ -364,6 +364,21 @@ class Eventos():
         except:
             print('error cerrar file chooser')
 
+    def on_btnImporta_clicked(self, widget):
+        try:
+            destino = variables.filechooserimport.get_filename()
+            importar.leerFichero(destino)
+        except:
+            print('error dselect fichero')
+
+
+    def on_btnCancelarImportar_clicked(self, widget):
+        try:
+            variables.filechooserimport.connect('delete-event', lambda w, e: w.hide() or True)
+            variables.filechooserimport.hide()
+        except:
+            print('error cerrar file chooser')
+
 ## reservas
 
     def on_cmbNumres_changed(self, widget):
@@ -493,7 +508,7 @@ class Eventos():
 
     def on_btnImportar_clicked(self, widget):
         try:
-            importar.leerFichero()
+            variables.filechooserimport.show()
         except Exception as e:
             print(e)
 

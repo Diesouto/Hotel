@@ -1,8 +1,11 @@
 """
-Aquí vendrán todas las funciones que afectan a la ¡gestión de los
-clientes
-Limpiarentry vaciará el contenido de los entry
+Módulo que gestiona los clientes
 
+Este modulo contiene las siguientes funciones
+* Limpiarentry
+    --fila: contuene un listado de widgets de clientes que vamos a limpuar para ejecutar en un evento
+* ValidoDNI
+    --dni: almacena un dni de un cliente
 """
 
 import conexion
@@ -10,6 +13,12 @@ import sqlite3
 import variables
 
 def limpiarentry(fila):
+
+    '''
+    Se encarga de limpiar los widgets de cliente
+    :param fila: una tupla con los widgets del cliente
+    :return: void
+    '''
 
     variables.menslabel[1].set_text('')
     for i in range(len(fila)):

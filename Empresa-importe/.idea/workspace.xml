@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2ba98a1-c33b-4255-93d2-640075698912" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="a2ba98a1-c33b-4255-93d2-640075698912" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresa.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/empresa.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventos.py" beforeDir="false" afterPath="$PROJECT_DIR$/eventos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionescli.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcionescli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/importar.py" beforeDir="false" afterPath="$PROJECT_DIR$/importar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/listadoclientes.xls" beforeDir="false" afterPath="$PROJECT_DIR$/listadoclientes.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/prueba.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/variables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ventana.glade" beforeDir="false" afterPath="$PROJECT_DIR$/ventana.glade" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +25,18 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1RkV5peS7CEpSUZcAgHebsLXuQ1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -24,18 +44,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -94,15 +102,47 @@
     </task>
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/funcionescli.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="525" y="137" width="927" height="830" key="CommitChangelistDialog2" timestamp="1580822506891">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="525" y="137" width="927" height="830" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1580822506891" />
+    <state width="1830" height="257" key="GridCell.Tab.0.bottom" timestamp="1580822375383">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="257" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1580822375383" />
+    <state width="1830" height="257" key="GridCell.Tab.0.center" timestamp="1580822375383">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="257" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1580822375383" />
+    <state width="1830" height="257" key="GridCell.Tab.0.left" timestamp="1580822375382">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="257" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1580822375382" />
+    <state width="1830" height="257" key="GridCell.Tab.0.right" timestamp="1580822375383">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="257" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1580822375383" />
+    <state x="348" y="285" key="SettingsEditor" timestamp="1580820752705">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="348" y="285" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1580820752705" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1580820647471">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580820647471" />
   </component>
 </project>
