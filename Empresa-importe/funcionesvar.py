@@ -4,7 +4,14 @@ import time
 import conexion, zipfile
 import variables
 
+# -*- coding: utf-8 -*-
+
 def backup():
+    """
+    Realiza una copia de la base de datos y la comprime en formato zip en el destino solicitado.
+    :return: neobackup: contiene la fecha de realización y nombre del backup
+    Excepciones: Error al obtener ruta, imprime "Error backup"
+    """
     try:
         conexion.Conexion().cerrarbbdd()
         backup = 'backup.zip'
@@ -20,6 +27,10 @@ def backup():
         print('error backup')
 
 def controlhab():
+    """
+
+    :return: void
+    """
     variables.t = threading.Timer(0.5, controlhab)
     variables.t.daemon = True
     variables.t.start()
@@ -29,6 +40,10 @@ def controlhab():
         actualizarhab()
 
 def cerrartimer():
+    """
+    Cierra el timer.
+    :return: void
+    """
     variables.t.join(0)
 
 '''
@@ -50,4 +65,8 @@ def controlhab():
 
 '''
 def actualizarhab():
+    """
+    Muestra por consola que la actualización de una habitación se ha realizado correctamente.
+    :return:void
+    """
     print('hola actualizasdor de habitaciones')

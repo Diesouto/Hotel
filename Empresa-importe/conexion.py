@@ -1,7 +1,18 @@
 import os, sqlite3
 
+# -*- coding: utf-8 -*-
+
+"""
+módulo encargado de abrir y cerrar el cursor y la bbdd.
+"""
+
 class Conexion:
     def abrirbbdd(self):
+        """
+        Abre la conexión con la base de datos y crea un cursor que realizará las operaciones con la bbdd.
+        :return: void
+        Excepciones: Error de operación en SQLite, muestra el error
+        """
         try:
             global bbdd, conex, cur
             bbdd = 'empresa.sqlite'         #variable que almacena la base de datos
@@ -12,6 +23,11 @@ class Conexion:
             print("Error al abrir: ", e)
 
     def cerrarbbdd(self):
+        """
+        Cierra la conexión con la base de datos y el cursor.
+        :return: void
+        Excepciones: Error de operación en SQLite, muestra el error
+        """
         try:
             cur.close()
             conex.close()

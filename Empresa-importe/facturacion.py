@@ -2,13 +2,33 @@ import funcionesreser
 import variables
 import datetime
 
+# -*- coding: utf-8 -*-
+"""
+módulo encargado de las operaciones con la factura de un cliente.
+"""
 
 def limpiar_labels_factura(labels_factura):
+    """
+    Limpia los labels de la factura.
+    :param labels_factura: contiene los labels de la factura
+    :return: void
+    """
     for i in range(len(labels_factura)):
         labels_factura[i].set_text('')
 
 
 def obtener_factura(dni, apellidos, nombre, cod, numero_habitacion, noches):
+    """
+    Genera la factura para un cliente del hotel.
+    :param dni: dni del cliente
+    :param apellidos: apellidos del cliente
+    :param nombre: nombre del cliente
+    :param cod: código de la habitación
+    :param numero_habitacion: número de la habitación del cliente
+    :param noches: número de noches que se queda el cliente
+    :return: void
+    Excepciones: Error de obtención de datos, muestra el error e imprime el mensaje("Error en obtener factura")
+    """
     try:
         variables.mensfac[0].set_text(str(dni))
         variables.mensfac[1].set_text(str(apellidos))

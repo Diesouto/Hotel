@@ -4,7 +4,18 @@ import xlwt
 import funcionescli
 import variables
 
+# -*- coding: utf-8 -*-
+
+"""
+Módulo encargado de la gestión de ficheros excel para importar y exportar datos.
+"""
+
 def leerFichero(filename):
+    """
+    Lee un fichero excel de clientes y los introduce en la bbdd.
+    :param filename: Obtiene el nombre y la ruta del fichero
+    :return: void
+    """
     print(filename)
     document = xlrd.open_workbook(filename) #Abrimos el fichero excel "listadoclientes.xls"
     clientes = document.sheet_by_index(0) #Guarda cada una de las hojas y el número indica la hoja
@@ -33,6 +44,12 @@ def leerFichero(filename):
 #definimos los estilos
 
 def exportarBBDD():
+
+    """
+    Exporta los clientes de la bbdd a un fichero excel que crea el sistema.
+    :return: void
+    """
+
     style0 = xlwt.easyxf('font: name Times New Roman, colour red, bold on')
     style1 = xlwt.easyxf('', num_format_str='DD-MM-YYYY')
 

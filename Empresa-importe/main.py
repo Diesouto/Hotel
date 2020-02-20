@@ -5,6 +5,8 @@ from gi.repository import Gtk, Gdk
 import eventos, conexion, variables
 import funcionescli, funcioneshab, funcionesreser,funcionesvar
 
+# -*- coding: utf-8 -*-
+
 '''
 el main contiene los elementos necesarios para lanzar la aplicación
 así como la declaración de los widgets que se usarán. También los módulos
@@ -102,6 +104,10 @@ class Empresa:
 
 
     def set_style(self):
+        """
+        Permite añadir estilos a ciertos elementos del programa
+        :return: void
+        """
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path('estilos.css')
         Gtk.StyleContext().add_provider_for_screen(

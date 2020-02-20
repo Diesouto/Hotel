@@ -178,6 +178,14 @@
       <column type="gchararray"/>
     </columns>
   </object>
+  <object class="GtkListStore" id="listServicios">
+    <columns>
+      <!-- column-name Servicio -->
+      <column type="gchararray"/>
+      <!-- column-name Precio -->
+      <column type="gfloat"/>
+    </columns>
+  </object>
   <object class="GtkListStore" id="listcmbHab">
     <columns>
       <!-- column-name Habitación -->
@@ -1528,6 +1536,230 @@
                 <property name="tab_fill">False</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="label" translatable="yes">SERVICIOS BÁSICOS</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkGrid">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="column_homogeneous">True</property>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="label" translatable="yes">Pensión Completa</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="label" translatable="yes">Piscina</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="label" translatable="yes">Media Pensión</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="label" translatable="yes">Gimnasio</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="label" translatable="yes">Aparcamiento</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="label" translatable="yes">Minibar</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="label" translatable="yes">SERVICIOS ADICIONALES</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow" id="scrollCli1">
+                    <property name="height_request">300</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="margin_top">3</property>
+                    <property name="margin_bottom">3</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="shadow_type">etched-in</property>
+                    <child>
+                      <object class="GtkTreeView" id="treeServicios">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Listado Clientes</property>
+                        <property name="margin_top">3</property>
+                        <property name="margin_bottom">3</property>
+                        <property name="vexpand">True</property>
+                        <property name="model">listServicios</property>
+                        <property name="search_column">0</property>
+                        <property name="ubuntu_almost_fixed_height_mode">True</property>
+                        <property name="enable_grid_lines">both</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection"/>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">SERVICIO</property>
+                            <property name="alignment">0.5</property>
+                            <property name="sort_column_id">0</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="dni2"/>
+                              <attributes>
+                                <attribute name="text">0</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">PRECIO</property>
+                            <property name="expand">True</property>
+                            <property name="alignment">0.5</property>
+                            <property name="reorderable">True</property>
+                            <property name="sort_indicator">True</property>
+                            <property name="sort_column_id">1</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="apelidos1"/>
+                              <attributes>
+                                <attribute name="text">1</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Servicios</property>
+                <attributes>
+                  <attribute name="font-desc" value="Sans Bold 11"/>
+                  <attribute name="weight" value="medium"/>
+                  <attribute name="foreground" value="#20204a498787"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="position">3</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
             <style>
               <class name="red"/>
             </style>
@@ -1545,7 +1777,7 @@
             <property name="can_focus">False</property>
             <property name="margin_left">5</property>
             <property name="margin_right">5</property>
-            <property name="margin_top">3</property>
+            <property name="margin_top">2</property>
             <property name="margin_bottom">3</property>
             <property name="hexpand">True</property>
             <child>
@@ -1604,6 +1836,23 @@
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Backup</property>
                         <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_menuBarbackup_activate" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuBarImportar">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Importar</property>
+                        <signal name="activate" handler="on_menuBarImportar_activate" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuBarExportar">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Exportar</property>
+                        <signal name="activate" handler="on_menuBarExportar_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -1831,6 +2080,7 @@
                 <property name="tooltip_text" translatable="yes">Imprimir Factura</property>
                 <property name="use_underline">True</property>
                 <property name="icon_widget">imgImpress</property>
+                <signal name="clicked" handler="on_btImprestool_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1904,6 +2154,7 @@
             <property name="height_request">624</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="show_tabs">False</property>
             <child>
               <object class="GtkFixed">
                 <property name="visible">True</property>
@@ -2199,8 +2450,10 @@
                       <object class="GtkSeparator">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="valign">end</property>
                         <property name="margin_top">15</property>
                         <property name="margin_bottom">15</property>
+                        <property name="vexpand">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -2222,50 +2475,6 @@
                         <property name="position">4</property>
                       </packing>
                     </child>
-                    <child>
-                      <object class="GtkSeparator">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="margin_top">15</property>
-                        <property name="margin_bottom">15</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">5</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="btnImportar">
-                        <property name="label" translatable="yes">Importar clientes de un fichero</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="valign">end</property>
-                        <property name="vexpand">True</property>
-                        <signal name="clicked" handler="on_btnImportar_clicked" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">6</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="btnExportar">
-                        <property name="label" translatable="yes">Exportar clientes a un fichero</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="valign">end</property>
-                        <signal name="clicked" handler="on_btnExportar_clicked" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">7</property>
-                      </packing>
-                    </child>
                   </object>
                   <packing>
                     <property name="y">50</property>
@@ -2274,14 +2483,7 @@
               </object>
             </child>
             <child type="tab">
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Facturación</property>
-              </object>
-              <packing>
-                <property name="tab_fill">False</property>
-              </packing>
+              <placeholder/>
             </child>
             <child>
               <placeholder/>

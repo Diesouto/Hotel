@@ -4,7 +4,18 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 import os, funcionescli
 
+# -*- coding: utf-8 -*-
+
+"""
+Módulo encargado de generar la factura de un cliente
+"""
+
 def basico():
+    """
+    Imprime la información básica de la factura.
+    :return: void
+    Excepciones: Error de creación de PDF, imprime "Error en básico"
+    """
     try:
         global bill
         bill = canvas.Canvas('prueba.pdf', pagesize=A4)
@@ -26,6 +37,12 @@ def basico():
 
 
 def factura(datosfactura):
+    """
+    Muestra la información del cliente en la factura.
+    :param datosfactura: contiene todos los datos del cliente y su reserva necesarios para realizar la factura
+    :return: void
+    Excepciones: Error al obtener una variable, imprime "Error en módulo factura"
+    """
     try:
         basico()
         bill.setTitle('FACTURA')

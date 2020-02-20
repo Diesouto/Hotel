@@ -4,7 +4,14 @@ from gi.repository import Gtk
 import conexion, variables, funcionescli, funcioneshab, funcionesreser, funcionesvar, importar,facturacion, impresion
 import os, shutil
 from datetime import date, datetime, time
+
+"""
+módulo encargado de la conexión entre la interfaz de usuario y el programa.
+"""
+
 class Eventos():
+
+# -*- coding: utf-8 -*-
 
 # eventos generales
     def on_acercade_activate(self, widget):
@@ -19,6 +26,32 @@ class Eventos():
             variables.venacercade.hide()
         except:
             print('error abrir calendario')
+
+
+    def on_menuBarbackup_activate(self, widget):
+        try:
+            variables.filechooserbackup.show()
+            variables.neobackup = funcionesvar.backup()
+            variables.neobackup = str(os.path.abspath(variables.neobackup))
+            print(variables.neobackup)
+
+        except:
+            print('error abrir file choose backup')
+
+
+    def on_menuBarImportar_activate(self, widget):
+        try:
+            variables.filechooserimport.show()
+        except Exception as e:
+            print(e)
+
+
+    def on_menuBarExportar_activate(self, widget):
+        try:
+            importar.exportarBBDD()
+        except Exception as e:
+            print(e)
+
 
     def on_menuBarsalir_activate(self, widget):
         try:
@@ -506,14 +539,9 @@ class Eventos():
         except Exception as e:
             print(e)
 
-    def on_btnImportar_clicked(self, widget):
-        try:
-            variables.filechooserimport.show()
-        except Exception as e:
-            print(e)
 
-    def on_btnExportar_clicked(self, widget):
+    def on_btImprestool_clicked(self, widget):
         try:
-            importar.exportarBBDD()
+            impresion.factura(datosfactura)
         except Exception as e:
             print(e)
