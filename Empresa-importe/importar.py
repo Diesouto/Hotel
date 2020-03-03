@@ -1,8 +1,3 @@
-from datetime import datetime
-import xlrd
-import xlwt
-import funcionescli
-import variables
 
 # -*- coding: utf-8 -*-
 
@@ -10,8 +5,18 @@ import variables
 Módulo encargado de la gestión de ficheros excel para importar y exportar datos.
 """
 
+from datetime import datetime
+import xlrd
+import xlwt
+import funcionescli
+import variables
+
+
+
 def leerFichero(filename):
     """
+    Importa clientes.
+
     Lee un fichero excel de clientes y los introduce en la bbdd.
     :param filename: Obtiene el nombre y la ruta del fichero
     :return: void
@@ -46,6 +51,8 @@ def leerFichero(filename):
 def exportarBBDD():
 
     """
+    Exporta clientes.
+
     Exporta los clientes de la bbdd a un fichero excel que crea el sistema.
     :return: void
     """

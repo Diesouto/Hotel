@@ -1,8 +1,9 @@
 
 # -*- coding: utf-8 -*-
+
 '''
-Variables
-==========
+Almacena variables.
+
 El módulo variables almacena variables que necesitamos
 en otros módulos.
 +Módulo clientes:
@@ -18,12 +19,17 @@ en otros módulos.
     *listhab: almacena los valores a mostrar en el treeview
     *treehab: almacena el widget que contiene los valores de listhab
 +Módulo factura:
-    *mensfac:
-    *labels_factura:
+    *mensfac: contiene labels para mostrar información de la factura
 +Módulo variables:
-
+    *t: es un timer
++Ventanas o labels:
+    *menslabel: contiene labels de aviso o advertencia, como el label para validar el dni
+    *vencalendar: contiene la ventana de diálogo del calendario
+    *venacercade: contiene la ventana de acerca de
+    *vendialogsalir: contiene la ventana de diálogo de salir
 +Otros:
-    *
+    *neobackup: contiene la fecha y ruta de una backup de la bbdd
+    *semaforo: permite saber a que calendario debemos controlar
 '''
 
 filacli = ()
@@ -57,3 +63,7 @@ vendialogsalir = None
 t = None
 cod = None
 switch = None
+filaservicio = ()
+lblservicio = ()
+listservicios = ()
+treeservicios = ()

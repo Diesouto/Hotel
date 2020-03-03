@@ -4,6 +4,7 @@
     <list default="true" id="a2ba98a1-c33b-4255-93d2-640075698912" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conexion.py" beforeDir="false" afterPath="$PROJECT_DIR$/conexion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresa.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/empresa.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventos.py" beforeDir="false" afterPath="$PROJECT_DIR$/eventos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facturacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/facturacion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funcionescli.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcionescli.py" afterDir="false" />
@@ -41,7 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Descargas/hotelite-master" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -111,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580822515648</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Añadida funcionalidad de importar/exportar&#10;Añadidos comentarios que documentan las funciones">
+      <created>1582231949254</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582231949254</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,40 +137,45 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Importar y exportar arreglado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Importar y exportar arreglado" />
+    <MESSAGE value="Añadida funcionalidad de importar/exportar&#10;Añadidos comentarios que documentan las funciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadida funcionalidad de importar/exportar&#10;Añadidos comentarios que documentan las funciones" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="525" y="137" width="927" height="830" key="CommitChangelistDialog2" timestamp="1582231918237">
+    <state x="525" y="137" width="927" height="830" key="CommitChangelistDialog2" timestamp="1583239980284">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="525" y="137" width="927" height="830" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1582231918237" />
-    <state width="904" height="278" key="GridCell.Tab.0.bottom" timestamp="1582032329766">
+    <state x="525" y="137" width="927" height="830" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583239980284" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1583135140556">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="904" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1582032329766" />
-    <state width="904" height="278" key="GridCell.Tab.0.center" timestamp="1582032329765">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1583135140556" />
+    <state width="904" height="278" key="GridCell.Tab.0.bottom" timestamp="1583237547119">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="904" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1582032329765" />
-    <state width="904" height="278" key="GridCell.Tab.0.left" timestamp="1582032329765">
+    <state width="904" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1583237547119" />
+    <state width="904" height="278" key="GridCell.Tab.0.center" timestamp="1583237547118">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="904" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1582032329765" />
-    <state width="904" height="278" key="GridCell.Tab.0.right" timestamp="1582032329766">
+    <state width="904" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1583237547118" />
+    <state width="904" height="278" key="GridCell.Tab.0.left" timestamp="1583237547118">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="904" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1582032329766" />
-    <state x="348" y="285" key="SettingsEditor" timestamp="1581424294811">
+    <state width="904" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1583237547118" />
+    <state width="904" height="278" key="GridCell.Tab.0.right" timestamp="1583237547118">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="348" y="285" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1581424294811" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1580822524747">
+    <state width="904" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1583237547118" />
+    <state x="348" y="285" key="SettingsEditor" timestamp="1583133596949">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1580822524747" />
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1582232722582">
+    <state x="348" y="285" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1583133596949" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1582231960469">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582232722582" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1582231960469" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1583009479581">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583009479581" />
   </component>
 </project>

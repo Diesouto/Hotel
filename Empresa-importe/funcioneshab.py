@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Aquí vendrán todas las funciones que afectan a la gestión de las habitaciones.
+Módulo que gestiona las habitaciones.
 """
 
 import conexion, sqlite3, variables
@@ -10,6 +10,7 @@ import conexion, sqlite3, variables
 def insertarhab(fila):
     """
     Añade una habitación a la base de datos.
+
     :param fila: fila con los datos de una nueva habitación
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -24,6 +25,7 @@ def insertarhab(fila):
 def listarhab():
     """
     Devuelve un listado con las habitaciones de la base de datos.
+
     :return: listado: contiene todas las habitaciones de la bbdd
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
     """
@@ -39,6 +41,7 @@ def listarhab():
 def limpiarentry(fila):
     """
     Limpia los widgets de entrada de las habitaciones.
+
     :param fila: contiene los widgets de entrada de las habitaciones
     :return: void
     """
@@ -48,6 +51,7 @@ def limpiarentry(fila):
 def listadohab(listhab):
     """
     Inserta un listado de las habitaciones en el treeview.
+
     :param listhab: contiene el treeview de las habitaciones
     :return: void
     Excepciones: Error de consulta, imprime ("Error en cargar treeview de hab")
@@ -64,6 +68,7 @@ def listadohab(listhab):
 def bajahab(numhab):
     """
     Elimina una habitación de la bbdd.
+
     :param numhab: número de la habitación que se desea eliminar
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -79,6 +84,7 @@ def bajahab(numhab):
 def modifhab(registro, numhab):
     """
     Modifica los datos de una habitación de la bbdd.
+
     :param registro: recibe los nuevos datos de la habitación
     :param numhab: indica la habitación a modificar
     :return: void
@@ -95,6 +101,7 @@ def modifhab(registro, numhab):
 def listadonumhab():
     """
     Realiza una consulta que almacena los números de las habitaciones en una variable listcmbhab.
+
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
     """
@@ -114,6 +121,7 @@ def listadonumhab():
 def listadonumhabres():
     """
     Realiza una consulta que almacena los números de las habitaciones en una variable llamada lista.
+
     :return: lista
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
     """
@@ -130,6 +138,7 @@ def listadonumhabres():
 def cambiaestadohab(libre, numhabres):
     """
     Cambia el estado de una habitación de libre a ocupada o viceversa.
+
     :param libre: contiene un string con "SI" o "NO" para cambiar el estado de la habitación
     :param numhabres: contiene el número de la habitación que se desea modificar
     :return: void

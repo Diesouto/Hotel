@@ -12,6 +12,7 @@ import variables
 def limpiarentry(fila):
     '''
     Se encarga de limpiar los widgets de cliente.
+
     :param fila: una tupla con los widgets del cliente
     :return: void
     '''
@@ -24,6 +25,7 @@ def validoDNI(dni):
 
     """
     Se encarga de validar un dni.
+
     :param dni: un dni que se quiere validar
     :return: True si es válido o False si es inválido
     Excepciones:    Si el dni no es válido print("Error")
@@ -53,6 +55,7 @@ def validoDNI(dni):
 def insertarcli(fila):
     """
     Inserta un cliente en la base de datos.
+
     :param fila:
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -70,6 +73,7 @@ def insertarcli(fila):
 def listar():
     """
     Devuelve un listado con todos los clientes.
+
     :return: listado con todos los clientes
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
     """
@@ -86,6 +90,7 @@ def listar():
 def bajacli(dni):
     """
     Elimina un cliente de la base de datos.
+
     :param dni: dni del cliente a borrar
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -101,6 +106,7 @@ def bajacli(dni):
 def modifcli(registro, cod):
     """
     Modifica los datos de un cliente en la base de datos.
+
     :param registro: recoge los nuevos datos del cliente
     :param cod: codigo del cliente a modificar
     :return: void
@@ -119,6 +125,7 @@ def modifcli(registro, cod):
 def listadocli(listclientes):
     """
     Inserta los datos del cliente en un treeview.
+
     :param listclientes: treeview donde se insertarán los clientes
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -135,6 +142,7 @@ def listadocli(listclientes):
 def selectcli(dni):
     """
     Devuelve los datos de un cliente de la base de datos.
+
     :param dni: dni del cliente que queremos seleccionar
     :return: listado con los datos del cliente
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -151,6 +159,7 @@ def selectcli(dni):
 def limpiarentry(fila):
     """
     Limpia los entry de cliente.
+
     :param fila:
     :return: void
     """
@@ -160,6 +169,7 @@ def limpiarentry(fila):
 def apelnomfac(dni):
     """
     Obtiene el nombre y apellido del cliente y los devuelve concatenados.
+
     :param dni: dni del cliente a consultar
     :return: apelnome: concatenación con el nombre y el apellido del cliente
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback

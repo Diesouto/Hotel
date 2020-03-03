@@ -1,15 +1,19 @@
-import funcionesreser
-import variables
-import datetime
 
 # -*- coding: utf-8 -*-
+
 """
 módulo encargado de las operaciones con la factura de un cliente.
 """
 
+
+import funcionesreser
+import variables
+import datetime
+
 def limpiar_labels_factura(labels_factura):
     """
     Limpia los labels de la factura.
+
     :param labels_factura: contiene los labels de la factura
     :return: void
     """
@@ -20,6 +24,7 @@ def limpiar_labels_factura(labels_factura):
 def obtener_factura(dni, apellidos, nombre, cod, numero_habitacion, noches):
     """
     Genera la factura para un cliente del hotel.
+
     :param dni: dni del cliente
     :param apellidos: apellidos del cliente
     :param nombre: nombre del cliente

@@ -1,10 +1,12 @@
-import os, sqlite3
 
 # -*- coding: utf-8 -*-
 
 """
 módulo encargado de abrir y cerrar el cursor y la bbdd.
 """
+
+import os, sqlite3
+
 
 class Conexion:
     def abrirbbdd(self):

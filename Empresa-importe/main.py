@@ -1,9 +1,3 @@
-import gi
-gi.require_version('Gtk','3.0')
-from gi.repository import Gtk, Gdk
-
-import eventos, conexion, variables
-import funcionescli, funcioneshab, funcionesreser,funcionesvar
 
 # -*- coding: utf-8 -*-
 
@@ -13,6 +7,15 @@ así como la declaración de los widgets que se usarán. También los módulos
 que tenemos que importar de las librerías gráficas
 
 '''
+
+import gi
+gi.require_version('Gtk','3.0')
+from gi.repository import Gtk, Gdk
+
+import eventos, conexion, variables
+import funcionescli, funcioneshab, funcionesreser,funcionesvar
+
+
 
 class Empresa:
     def __init__(self):
@@ -82,6 +85,17 @@ class Empresa:
 
         variables.filareserva = (entdni, entapel, entdatain, entdataout)
 
+        #widgets servicios
+        lblcodres = self.b.get_object('lblServicioReserva')
+        lblcodhab = self.b.get_object('lblServicioHabitacion')
+        entryservicio = self.b.get_object('entryServicio')
+        entryprecio = self.b.get_object('entryPrecioServicio')
+
+        variables.filaservicio = (entryservicio, entryprecio)
+        variables.lblservicio = (lblcodres, lblcodhab)
+        variables.treeservicios = self.b.get_object('treeServicios')
+        variables.listservicios = self.b.get_object('listServicios')
+
         #conectamos
         self.b.connect_signals(eventos.Eventos())
 
@@ -97,7 +111,7 @@ class Empresa:
         vprincipal.maximize()
         conexion.Conexion().abrirbbdd()
         funcionesreser.listadores()
-        funcioneshab.listadonumhab(self)
+        funcioneshab.listadonumhab()
         funcionescli.listadocli(variables.listclientes)
         funcioneshab.listadohab(variables.listhab)
         funcionesvar.controlhab()
@@ -105,7 +119,8 @@ class Empresa:
 
     def set_style(self):
         """
-        Permite añadir estilos a ciertos elementos del programa
+        Permite añadir estilos a ciertos elementos del programa.
+
         :return: void
         """
         css_provider = Gtk.CssProvider()

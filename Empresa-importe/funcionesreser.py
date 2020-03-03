@@ -1,7 +1,3 @@
-import conexion
-import sqlite3
-import variables
-from datetime import datetime
 
 # -*- coding: utf-8 -*-
 
@@ -9,9 +5,16 @@ from datetime import datetime
 Módulo que gestiona las operaciones de reserva.
 """
 
+import conexion
+import sqlite3
+import variables
+from datetime import datetime
+
+
 def limpiarentry(fila):
     """
     Limpia los widgets de entrada de reserva.
+
     :param fila: contiene los widgets de reserva
     :return: void
     """
@@ -24,6 +27,7 @@ def limpiarentry(fila):
 def calculardias():
     """
     Calcula los días de estancia de un cliente.
+
     :return: void
     """
     diain = variables.filareserva[2].get_text()
@@ -41,6 +45,7 @@ def calculardias():
 def insertares(fila):
     """
     Inserta una reserva en la bbdd.
+
     :param fila: contiene los widgets de entrada de reserva con su información
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -56,6 +61,7 @@ def insertares(fila):
 def listadores():
     """
     Obtiene un listado de las reservas y lo muestra en el treeview.
+
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
     """
@@ -71,6 +77,7 @@ def listadores():
 def listares():
     """
     Realiza una consulta de todas las reservas de la bbdd y las almacena en la variable listado.
+
     :return: listado
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
     """
@@ -86,6 +93,7 @@ def listares():
 def buscarapelcli(dni):
     """
     Busca el apellido de un cliente en concreto.
+
     :param dni: Contiene el dni del cliente del que queremos saber el apellido
     :return: apel: contiene el apellido de cliente
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -102,6 +110,7 @@ def buscarapelcli(dni):
 def buscarnome(dni):
     """
     Busca el nombre de un cliente en concreto.
+
     :param dni: Contiene el dni del cliente del que queremos saber el nombre
     :return: nome: contiene el nombre de cliente
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -118,6 +127,7 @@ def buscarnome(dni):
 def bajareserva(cod):
     """
     Elimina una reserva de la bbdd.
+
     :param cod: contiene el código de la reserva a eliminar
     :return: void
     Excepciones: Error de operación en SQLite, muestra el error y hace rollback
@@ -137,6 +147,7 @@ def bajareserva(cod):
 def versilibre(numhab):
     """
     Comprueba si una habitación concreta está libre u ocupada.
+
     :param numhab: contiene el número de la habitación que deseamos consultar
     :return: True: si está libre
              False: si está ocupada
@@ -158,6 +169,7 @@ def versilibre(numhab):
 def obtener_precio(numero):
     """
     Obtiene el precio de una habitación concreta.
+
     :param numero: contiene el número de la habitación a consultar
     :return: precio: contiene el precio de la habitación consultada
     """

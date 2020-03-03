@@ -1,13 +1,18 @@
+
+
+# -*- coding: utf-8 -*-
+
 import os, threading, sys
 from datetime import datetime, date
 import time
 import conexion, zipfile
 import variables
 
-# -*- coding: utf-8 -*-
 
 def backup():
     """
+    Crea una copia de la bbdd.
+
     Realiza una copia de la base de datos y la comprime en formato zip en el destino solicitado.
     :return: neobackup: contiene la fecha de realización y nombre del backup
     Excepciones: Error al obtener ruta, imprime "Error backup"
@@ -42,6 +47,7 @@ def controlhab():
 def cerrartimer():
     """
     Cierra el timer.
+
     :return: void
     """
     variables.t.join(0)
@@ -66,6 +72,8 @@ def controlhab():
 '''
 def actualizarhab():
     """
+    Aviso por consola.
+
     Muestra por consola que la actualización de una habitación se ha realizado correctamente.
     :return:void
     """

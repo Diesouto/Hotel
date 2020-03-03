@@ -1,26 +1,44 @@
+
+# -*- coding: utf-8 -*-
+
+"""
+módulo encargado de la conexión entre la interfaz de usuario y el programa.
+"""
+
 import gi
+
+import funcionesservicio
+
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 import conexion, variables, funcionescli, funcioneshab, funcionesreser, funcionesvar, importar,facturacion, impresion
 import os, shutil
 from datetime import date, datetime, time
 
-"""
-módulo encargado de la conexión entre la interfaz de usuario y el programa.
-"""
 
 class Eventos():
 
-# -*- coding: utf-8 -*-
 
 # eventos generales
     def on_acercade_activate(self, widget):
+        """
+        Muestra la ventana acerca de cuando se presiona sobre el botón.
+        :param widget: Acerca de en la barra de herramientas
+        :return: void
+        Excepciones: Error al abrir la ventana de diálogo
+        """
         try:
             variables.venacercade.show()
         except:
             print('error abrira acerca de')
 
     def on_btnCerrarabout_clicked(self, widget):
+        """
+        Cierra la ventana de acerca de.
+        :param widget: Botón cerrar de la ventana Acerca de
+        :return: void
+        """
+
         try:
             variables.venacercade.connect('delete-event', lambda w, e: w.hide() or True)
             variables.venacercade.hide()
@@ -29,6 +47,12 @@ class Eventos():
 
 
     def on_menuBarbackup_activate(self, widget):
+        """
+        Realiza una backup de la bbdd cuando se presiona el botón correspondiente.
+        :param widget: Backup de la barra de herramientas
+        :return: void
+        Excepciones: Error al abrir la ventana, imprime "error abrir file choose backup"
+        """
         try:
             variables.filechooserbackup.show()
             variables.neobackup = funcionesvar.backup()
@@ -40,6 +64,12 @@ class Eventos():
 
 
     def on_menuBarImportar_activate(self, widget):
+        """
+        Importa clientes de un fichero excel al presionar el botón correspondiente.
+        :param widget: Importar en la barra de menú
+        :return: void
+        Excepciones: Error al abrir la ventana, muestra el error
+        """
         try:
             variables.filechooserimport.show()
         except Exception as e:
@@ -47,6 +77,12 @@ class Eventos():
 
 
     def on_menuBarExportar_activate(self, widget):
+        """
+        Exporta clientes a un fichero excel al presionar el botón correspondiente.
+        :param widget: Exportar en la barra de menú
+        :return: void
+        Excepciones: Error de operación, muestra el error
+        """
         try:
             importar.exportarBBDD()
         except Exception as e:
@@ -54,12 +90,22 @@ class Eventos():
 
 
     def on_menuBarsalir_activate(self, widget):
+        """
+        Termina la ejecución del programa al presionar el botón correspondiente.
+        :param widget: Salir en la barra de menú
+        :return: void
+        """
         try:
             self.salir()
         except:
             print('salir en menubar')
 
     def salir(self):
+        """
+        Termina la ejecución del programa, cierra las ventanas y la conexión con la bbdd.
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             conexion.Conexion.cerrarbbdd(self)
             funcionesvar.cerrartimer()
@@ -68,22 +114,50 @@ class Eventos():
             print('error función salir')
 
     def on_venPrincipal_destroy(self, widget):
+        """
+        Termina el programa cuando se cierra la ventana principal.
+        :param widget: Ventana principal
+        :return: void
+        """
         self.salir()
 
     def on_btnSalirtool_clicked(self, widget):
+        """
+        Muestra la ventana de diálogo de salir.
+        :param widget: Botón salir
+        :return: void
+        """
         variables.vendialogsalir.show()
 
     def on_btnCancelarsalir_clicked(self, widget):
+        """
+        Cierra la ventana de diálogo de salir.
+        :param widget: Botón cancelar en la ventana de diálogo Salir
+        :return: void
+        """
         variables.vendialogsalir.connect('delete-event', lambda w, e: w.hide() or True)
         variables.vendialogsalir.hide()
 
     def on_btnAceptarsalir_clicked(self, widget):
+        """
+        Termina la ejecución del programa.
+        :param widget: botón Salir en la ventana de diálogo salir.
+        :return: void
+        """
         self.salir()
     """
     Eventos Clientes
     """
 
     def on_btnAltacli_clicked(self, widget):
+        """
+        Realiza el alta de un cliente.
+        Obtiene la información de los widgets de entrada, valida si el
+        dni es correcto e inserta al cliente en la bbdd.
+        :param widget: Botón Alta en Clientes
+        :return: void
+        Excepciones: DNI inválido o la existencia de ese cliente en la bbdd, imprime mensaje de error
+        """
         try:
             dni = variables.filacli[0].get_text()
             apel = variables.filacli[1].get_text()
@@ -102,6 +176,14 @@ class Eventos():
 #botón baja cliente.
 
     def on_btnBajacli_clicked(self, widget):
+        """
+        Elimina a un cliente de la bbdd.
+        Obtiene el cliente a borrar por el dni que se
+        encuentre en el entry en ese momento.
+        :param widget: Botón baja en clientes
+        :return: void
+        Excepciones: Entry vacío o ausencia de cliente en la bbdd, imprime mensaje de error
+        """
         try:
             dni = variables.filacli[0].get_text()
             if dni != '' :
@@ -115,6 +197,14 @@ class Eventos():
 
 #  modificamos cliente
     def on_btnModifcli_clicked(self, widget):
+        """
+        Modifica los datos de un cliente en la bbdd.
+        Recoge los nuevos datos y los inserta donde coincida
+        el dni de entrada con el del cliente existente en la bbdd.
+        :param widget: Botón Modificar en clientes
+        :return: void
+        Excepciones: Cliente no existe en la bbdd o dni inválido, imprime mensaje de error
+        """
         try:
             cod = variables.menslabel[1].get_text()
             dni = variables.filacli[0].get_text()
@@ -134,6 +224,15 @@ class Eventos():
 
 # controla el valor del deni
     def on_entDni_focus_out_event(self, widget, dni):
+        """
+        Valida el dni intoducido.
+        Controla si se ha introducido un dni válido cuando el ratón abandona el entry del dni
+        y muestra un aviso por pantalla en un label.
+        :param widget: Entry del dni clientes
+        :param dni: contiene el dni a validar
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             dni = variables.filacli[0].get_text()
             if funcionescli.validoDNI(dni):
@@ -146,6 +245,12 @@ class Eventos():
 
 
     def on_treeClientes_cursor_changed(self, widget):
+        """
+        Controla la selección de un cliente el el treeview de clientes.
+        :param widget: treeview de clientes
+        :return: void
+        Excepciones: Error al obtener los datos del cliente, imprime mensaje de error
+        """
         try:
             model,iter = variables.treeclientes.get_selection().get_selected()
             # model es el modelo de la tabla de datos
@@ -172,6 +277,12 @@ class Eventos():
             print ("error carga cliente")
 
     def on_btnCalendar_clicked(self, widget):
+        """
+        Abre la ventana calendario para seleccionar una fecha en clientes.
+        :param widget: botón calendar de clientes
+        :return: void
+        Excepciones: Error al abrir calendario, imprime mensaje de error
+        """
         try:
             variables.semaforo = 1
             variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
@@ -181,6 +292,12 @@ class Eventos():
             print('error abrir calendario')
 
     def on_btnCalendarResIn_clicked(self,widget):
+        """
+        Abre la ventana calendario para seleccionar una fecha en la entrada de la reserva.
+        :param widget: botón calendario checkin en reservas
+        :return: void
+        Excepciones: Error al abrir calendario, imprime mensaje de error
+        """
         try:
             variables.semaforo = 2
             variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
@@ -189,6 +306,12 @@ class Eventos():
             print('error abrir calendario')
 
     def on_btnCalendarResOut_clicked(self, widget):
+        """
+        Abre la ventana calendario para seleccionar una fecha en la salida de la reserva
+        :param widget: botón calendario checkout en reservas
+        :return: void
+        Excepciones: Error al abrir calendario, imprime mensaje de error
+        """
         try:
             variables.semaforo  = 3
             variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
@@ -197,6 +320,12 @@ class Eventos():
             print('error abrir calendario')
 
     def on_Calendar_day_selected_double_click(self, widget):
+        """
+        Guarda la fecha en el calendario al hacer doble click
+        :param widget: calendario
+        :return: void
+        Excepciones: Error al obtener la fecha, imprime mensaje de error
+        """
         try:
             agno, mes, dia = variables.calendar.get_date()
             fecha = "%02d/" % dia + "%02d/" % (mes + 1) + "%s" % agno
@@ -214,9 +343,17 @@ class Eventos():
         except:
             print('error al coger la fecha')
 
+
 # Eventos de las habitaciones
 
     def on_btnAltahab_clicked(self, widget):
+        """
+        Realiza el alta de una habitación en la bbdd.
+        Recoge y almacena los valores de los entrys de habitaciones
+        :param widget: botón alta en habitaciones
+        :return: void
+        Excepciones: Campos vacíos o habitación existente, imprime mensaje de error
+        """
         try:
             numhab = variables.filahab[0].get_text()
             prezohab = variables.filahab[1].get_text()
@@ -248,6 +385,12 @@ class Eventos():
             print("Error alta habitacion")
 
     def on_treeHab_cursor_changed(self, widget):
+        """
+        Permite seleccionar una habitación en el treeview de habitaciones.
+        :param widget: treeview habitaciones
+        :return: void
+        Excepciones: Error de selección, imprime mensaje de error
+        """
         try:
             model, iter = variables.treehab.get_selection().get_selected()
             # model es el modelo de la tabla de datos
@@ -276,6 +419,12 @@ class Eventos():
 
 
     def on_btnBajahab_clicked(self,widget):
+        """
+        Elimina una habitación seleccionada de la bbdd.
+        :param widget: botón baja en habitaciones
+        :return: void
+        Excepciones: Número de habitación inexistente en la bbdd o mal introducido, imprime mensaje de error
+        """
         try:
             numhab = variables.filahab[0].get_text()
             if numhab != '':
@@ -289,6 +438,14 @@ class Eventos():
 
 
     def on_btnModifhab_clicked(self, widget):
+        """
+        Modifica los datos de una habitación concreta.
+        Obtiene los nuevos datos de los entrys de habitación y
+        modifica la habitación de la bbdd con el mismo número que la del entry.
+        :param widget: botón modificar en habitaciones
+        :return: void
+        Excepciones: Número de habitación incorrecto o inexistente, imprime mensaje de error
+        """
         try:
             numhab = variables.filahab[0].get_text()
             prezo = variables.filahab[1].get_text()
@@ -319,12 +476,24 @@ class Eventos():
     # eventos de los botones del toolbar
 
     def on_Panel_select_page(self, widget):
+        """
+        Cambia la ventana que se muestra al usuario cuando este
+        selecciona un panel distinto.
+        :param widget:
+        :return: void
+        """
         try:
             funcioneshab.listadonumhab()
         except:
             print("error botón cliente barra herramientas")
 
     def on_btnClitool_clicked (self, widget):
+        """
+        Cambia la ventana del panel a la de Clientes.
+        :param widget: panel clientes
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             panelactual = variables.panel.get_current_page()
             if panelactual != 0:
@@ -335,6 +504,12 @@ class Eventos():
             print("error botón cliente barra herramientas")
 
     def on_btnReservatool_clicked(self, widget):
+        """
+        Cambia la ventana del panel a la de Reservas
+        :param widget: panel reserva
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             panelactual = variables.panel.get_current_page()
             if panelactual != 1:
@@ -346,6 +521,12 @@ class Eventos():
             print("error botón cliente barra herramientas")
 
     def on_btnHabita_clicked(self,widget):
+        """
+        Cambia la ventana del panel a la de Habitaciones
+        :param widget: panel habitaciones
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             panelactual = variables.panel.get_current_page()
             if panelactual != 2:
@@ -356,12 +537,24 @@ class Eventos():
             print("error botón habitacion barra herramientas")
 
     def on_btnCalc_clicked(self, widget):
+        """
+        Abre una calculadora
+        :param widget: botón calculadora de la barra de herramientas
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             os.system('/snap/bin/gnome-calculator')
         except:
             print('error lanzar calculadora')
 
     def on_btnRefresh_clicked(self, widget):
+        """
+        Limpia todos los entry del programa
+        :param widget: botón refresh de la barra de herramientas
+        :return: void
+        Excepciones: Error al obtener los entry, imprime mensaje de error
+        """
         try:
             funcioneshab.limpiarentry(variables.filahab)
             funcionescli.limpiarentry(variables.filacli)
@@ -370,6 +563,14 @@ class Eventos():
             print('error referes')
 
     def on_btnBackup_clicked(self, widget):
+        """
+        Abre la ventana de backup.
+        Abre una ventana de diálogo que permite seleccionar donde se
+        realizará la copia de la bbdd.
+        :param widget: botón Backup de la barra de herramientas
+        :return: void
+        Excepciones: Error al abrir la ventana, imprime mensaje de error
+        """
         try:
             variables.filechooserbackup.show()
             variables.neobackup = funcionesvar.backup()
@@ -380,6 +581,14 @@ class Eventos():
             print('error abrir file choorse backup')
 
     def on_btnGrabarbackup_clicked(self, widget):
+        """
+        Hace una backup de la bbdd.
+        Realiza una copia de la bbdd actual y la comprime en zip
+        en el destino solicitado.
+        :param widget: botón grabar en la ventana de Backup
+        :return: void
+        Excepciones: Error de selección de fichero, imprime mensaje de error
+        """
         try:
             destino = variables.filechooserbackup.get_filename()
             destino = destino + '/'
@@ -391,6 +600,12 @@ class Eventos():
 
 
     def on_btnCancelfilechooserbackup_clicked(self, widget):
+        """
+        Cierra la ventana de diálogo de selección de ficheros.
+        :param widget: botón cerrar en la ventana de backup
+        :return: void
+        Excepciones: Error al cerrar la ventana, imprime mensaje de error
+        """
         try:
             variables.filechooserbackup.connect('delete-event', lambda w, e: w.hide() or True)
             variables.filechooserbackup.hide()
@@ -398,6 +613,12 @@ class Eventos():
             print('error cerrar file chooser')
 
     def on_btnImporta_clicked(self, widget):
+        """
+        Importa clientes a la bbdd desde un fichero excel.
+        :param widget: botón importar en la ventana de Importar
+        :return: void
+        Excepciones: Error de selección de fichero, imprime mensaje de error
+        """
         try:
             destino = variables.filechooserimport.get_filename()
             importar.leerFichero(destino)
@@ -406,6 +627,12 @@ class Eventos():
 
 
     def on_btnCancelarImportar_clicked(self, widget):
+        """
+        Cierra la ventana de diálogo de selección de fichero.
+        :param widget: botón cancelar en la ventana de Importar
+        :return: void
+        Excepciones: Error al cerrar la ventana, imprime mensaje de error
+        """
         try:
             variables.filechooserimport.connect('delete-event', lambda w, e: w.hide() or True)
             variables.filechooserimport.hide()
@@ -424,6 +651,14 @@ class Eventos():
             print('error mostrar habitacion combo')
 
     def on_btnAltares_clicked(self, widget):
+        """
+        Inserta una reserva en la bbdd.
+        Controla que la habitación a reservar no esté ocupada y obtiene los
+        datos necesarios de la habitación y del cliente.
+        :param widget: botón Alta en reservas
+        :return: void
+        Excepciones: Error al obtener los datos, imprime mensaje de error
+        """
         try:
             if variables.reserva == 1:
                 dnir = variables.menslabel[4].get_text()
@@ -446,6 +681,12 @@ class Eventos():
             print ('error en alta res')
 
     def on_btnRefreshcmbhab_clicked(self, widget):
+        """
+        Limpia los entry del combo hotel.
+        :param widget: botón refresh
+        :return: void
+        Excepciones: Error al obtener los entry, imprime mensaje de error
+        """
         try:
             variables.cmbhab.set_active(-1)
             funcioneshab.listadonumhab(self)
@@ -453,6 +694,14 @@ class Eventos():
             print ('error limpiar combo hotel')
 
     def on_treeReservas_cursor_changed(self, widget):
+        """
+        Selecciona una reserva.
+        Permite seleccionar una reserva en el treeview de Reservas y obtener sus datos.
+        Los datos obtenidos nos permiten crear una factura.
+        :param widget: treeview reservas
+        :return: void
+        Excepciones: Error al obtener los datos, imprime mensaje de error
+        """
         try:
             model, iter = variables.treereservas.get_selection().get_selected()
             # model es el modelo de la tabla de datos
@@ -483,16 +732,27 @@ class Eventos():
 
                 global datosfactura
                 datosfactura = (variables.codr, snoches, sdni, snumhab, snoches)
+
+                #servicios
+                variables.lblservicio[0].set_text(str(variables.codr))
+                variables.lblservicio[1].set_text(str(snumhab))
+
         except:
             print ('error cargar valores de reservas')
 
 
-    def on_btnAnular_clicked(self, widget):
+    def on_btnBajares_clicked(self, widget):
+        """
+        Borra una reserva de la bbdd.
+        :param widget: botón Borrar en reservas
+        :return: void
+        Excepciones: Error al obtener los datos, imprime mensaje de error
+        """
         try:
             libre = ['SI']
             numhabres = variables.numhabres
             funcionesreser.bajareserva(variables.codr)
-            funcioneshab.cambiaestadohab(libre[0], numhabres)
+            funcioneshab.cambiaestadohab(libre, numhabres)
             funcionesreser.limpiarentry(variables.filareserva)
             funcionesreser.listadores()
             funcioneshab.listadohab(variables.listhab)
@@ -501,6 +761,12 @@ class Eventos():
             print('error baja reserva')
 
     def on_btnModifres_clicked(self, widget):
+        """
+        Modifica los datos de una reserva en la bbdd.
+        :param widget: botón modificar en reserva
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             dnir = variables.menslabel[4].get_text()
             chki = variables.filareserva[2].get_text()
@@ -515,6 +781,13 @@ class Eventos():
             print('error modificar reserva')
 
     def on_btChkout_clicked(self, widget):
+        """
+        Realiza el check out de un cliente.
+        Cambia el estado de la habitación ocupada a libre.
+        :param widget: botón checkout en reserva
+        :return: void
+        Excepciones: Error al obtener los datos, imprime mensaje de error
+        """
         try:
             chko = variables.filareserva[3].get_text()
             today = date.today()
@@ -534,6 +807,12 @@ class Eventos():
             print('error en checkout')
 
     def on_btnPrintfac_clicked(self, widget):
+        """
+        Crea la factura de la reserva deseada.
+        :param widget: botón imprimir de la ventana de aplicación
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             impresion.factura(datosfactura)
         except Exception as e:
@@ -541,7 +820,21 @@ class Eventos():
 
 
     def on_btImprestool_clicked(self, widget):
+        """
+        Crea la factura de la reserva deseada.
+        :param widget: botón imprimir de la barra de herramientas
+        :return: void
+        Excepciones: Error de operación, imprime mensaje de error
+        """
         try:
             impresion.factura(datosfactura)
         except Exception as e:
             print(e)
+
+
+    def btnCrearServicio_clicked(self, widget):
+        try:
+            reserva = variables.lblservicio[0].get_text()
+            nombre = variables.filaservicio[0].get_text()
+            precio = variables.filaservicio[1].get_text()
+            funcionesservicio.insertares()
