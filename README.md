@@ -5,5 +5,6 @@ Features a CRUD for clients, rooms and services. Lets you associate a client wit
 Can import and export all the data from CSV files.
 
 TO RUN:
-Download project on Linux, access path where main.py is and open terminal, then type:
-python3 main.py
+1. Download project on Linux
+2. Open folder Empresa-importe/ 
+3. Open terminal, then type: python3 main.py
